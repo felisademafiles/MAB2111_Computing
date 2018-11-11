@@ -75,3 +75,5 @@ NU$Name[(which.max(NU$Undergrad))]
 NU.Top10 <- subset(NU, Rank <= 10)
 NU.Top10$Tuition = gsub("[\\$,]", "", NU.Top10$Tuition.and.fees)
 mean(as.numeric(NU.Top10$Tuition))
+
+#added to test commits in GitHub.
