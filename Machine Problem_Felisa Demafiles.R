@@ -143,33 +143,3 @@ len = p/2
 
 
 
-
-
-
-
-
-
-
-
-
-
-#DETERMINANT
-m <- matrix(c(1,2,3, 4,5,6, 7,8,9), nrow=3, ncol=3)
-class(m)
-
-Determ <- function (m){
-  if(class(m)!="matrix"){
-    print("not a matrix")
-  }else {
-    if(nrow(m)!=ncol(m)){
-      print("not a square matrix")
-    }else{
-      
-    }
-    
-  }
-  
-}
-Determ(n)
-
-
