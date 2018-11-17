@@ -1,25 +1,29 @@
 #1.Define an R function that removes NA values from a vector.
+x<-c(1,NA,2,3,4,NA,6)
 Remove.NA <- function (n){
   Removed.NA <- subset(n, is.na(n)==FALSE)
-  print(Removed.NA)  
+  return(Removed.NA)  
 }
+
+Remove.NA(x)
 
 
 #2. Define an R function that computes the factorial of given an integer argument. The output should be a vector of length 1.
 fact <- function(x){
-i=1
-product=1
+  i=1
+  product=1
   if(x==0 | x==1){
     product=1
   }else{
     while (i <= x){
-        product = i*product
-        i=i+1
-      }
+      product = i*product
+      i=i+1
+    }
   }
-  print(product)
+  return(product)
 }
 
+fact(4)
 
 
 #5. Define an R function that accepts a Date (POSIXct) as argument and outputs the day of the week as characters. Use modulo operator.
@@ -27,25 +31,28 @@ day <- function(d){
   if(is(d,"POSIXct")==TRUE){
     seccount <- unclass(d)
     mod <- seccount%%604800
-        if(mod < 86400){
-          print("Thursday")
-        }else if(mod >= 86400 & mod < 172800){
-          print("Friday")
-        }else if(mod >= 172800 & mod < 259200){
-          print("Saturday")
-        }else if(mod >= 259200 & mod < 345600){
-          print("Sunday")
-        }else if(mod >= 345600 & mod <= 432000){
-          print("Monday")
-        }else if(mod >= 432000 & mod < 518400){
-          print("Tuesday")
-        }else{
-          print("Wednesday")
-        }
+    if(mod < 86400){
+      dayOfWeek="Thursday"
+    }else if(mod >= 86400 & mod < 172800){
+      dayOfWeek="Friday"
+    }else if(mod >= 172800 & mod < 259200){
+      dayOfWeek="Saturday"
+    }else if(mod >= 259200 & mod < 345600){
+      dayOfWeek="Sunday"
+    }else if(mod >= 345600 & mod <= 432000){
+      dayOfWeek="Monday"
+    }else if(mod >= 432000 & mod < 518400){
+      dayOfWeek="Tuesday"
+    }else{
+      dayOfWeek="Wednesday"
+    }
   }else{
-    print("The value is not in POSIXct format.")
+    dayOfWeek="The value is not in POSIXct format"
   }
+  return(dayOfWeek)
 }
+
+day(Sys.time())
 
 
 
@@ -107,17 +114,17 @@ net_pay <- function(monthly_gross,days_worked=22,months_pay=13){
   }
   
   monthly_net=monthly_net-monthly_sss_cont 
-
-  print(monthly_net)
   
+  return(monthly_net)
 }
 
+net_pay(15000)
 
 
 #9. Create a function isPrime(n) that accepts an integer and outputs a Boolean value (TRUE or FALSE) depending whether the integer is a prime number or not.
 is.prime <- function(p){
-prime = TRUE
-len = p/2
+  prime = TRUE
+  len = p/2
   if(p==2){
     print(prime)
   }
@@ -126,20 +133,19 @@ len = p/2
   }else if(p<0){
     print("Enter a positive number.")
   }else{
-     for(i in 2:len){
-       if(i <= len){
-         if(p%%i == 0){
-            prime = FALSE
-            i=i+1
-            break
-         }else{
-           prime = TRUE
-         }
-       } 
-     }
-      print(prime)
+    for(i in 2:len){
+      if(i <= len){
+        if(p%%i == 0){
+          prime = FALSE
+          i=i+1
+          break
+        }else{
+          prime = TRUE
+        }
+      } 
+    }
+    return(prime)
   }
 }
 
-
-
+is.prime(6)
